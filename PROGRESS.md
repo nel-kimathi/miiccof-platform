@@ -22,6 +22,7 @@
 - Committed and pushed the layout/seed/script changes (`b1c83bd`) and the partner-logos feature (`9ff4c0a`).
 - Applied the `partnerLogos` setting to the production TiDB database via a temporary, secret-protected API route running on Vercel, then removed the route.
 - Verified the live homepage now shows the Our Partners carousel with the three logos linking to their respective sites in new tabs.
+- Updated KNCCI Meru Chapter logo link from `https://kncci.org/` to `https://meruchamber.co.ke/` in code defaults, seed data, and production database; verified live.
 
 **Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
 - The local `scripts/update-production-content.ts` could not connect to TiDB Cloud (Prisma pool timeout), likely a local network/firewall issue because the production Vercel deployment connects fine. Applied the one-line image-path fix via a temporary, secret-protected `/api/admin/update-content` route that ran on Vercel, then removed the route.
