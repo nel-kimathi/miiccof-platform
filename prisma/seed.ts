@@ -535,6 +535,23 @@ async function main() {
       "Build strategic relationships through VIP networking and B2B matchmaking",
       "Demonstrate commitment to enterprise growth and regional investment",
     ]),
+    partnerLogos: JSON.stringify([
+      {
+        name: "Meru County Government",
+        image: "/images/brands/mcg-logo.png",
+        href: "https://meru.go.ke/",
+      },
+      {
+        name: "Meru University of Science and Technology",
+        image: "/images/brands/must-logo.png",
+        href: "https://www.must.ac.ke/",
+      },
+      {
+        name: "KNCCI Meru Chapter",
+        image: "/images/brands/kncci-logo.png",
+        href: "https://kncci.org/",
+      },
+    ]),
   };
   for (const [key, value] of Object.entries(defaultSettings)) {
     await prisma.siteSetting.upsert({

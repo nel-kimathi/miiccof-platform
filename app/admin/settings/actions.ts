@@ -75,6 +75,23 @@ const DEFAULT_SETTINGS: Record<string, string> = {
     "MIICCOF is a flagship platform convening investors, businesses, government, development partners, financial institutions, and consumers to unlock investment and commercial opportunities across Meru County and the wider region, showcasing potential in agriculture and agribusiness, avocado and miraa value addition, tourism and hospitality, manufacturing, trade, financial services, technology, SMEs, and Special Economic Zone (SEZ) opportunities.",
   sponsorshipTiers: JSON.stringify(DEFAULT_SPONSORSHIP_TIERS),
   whyPartnerPoints: JSON.stringify(DEFAULT_WHY_PARTNER_POINTS),
+  partnerLogos: JSON.stringify([
+    {
+      name: "Meru County Government",
+      image: "/images/brands/mcg-logo.png",
+      href: "https://meru.go.ke/",
+    },
+    {
+      name: "Meru University of Science and Technology",
+      image: "/images/brands/must-logo.png",
+      href: "https://www.must.ac.ke/",
+    },
+    {
+      name: "KNCCI Meru Chapter",
+      image: "/images/brands/kncci-logo.png",
+      href: "https://kncci.org/",
+    },
+  ]),
 };
 
 export type SponsorshipTier = {
@@ -88,6 +105,12 @@ export type SponsorshipSettings = {
   sponsorsIntro: string;
   sponsorshipTiers: SponsorshipTier[];
   whyPartnerPoints: string[];
+};
+
+export type PartnerLogo = {
+  name: string;
+  image: string;
+  href: string;
 };
 
 export async function getSettings() {
@@ -125,6 +148,22 @@ function parseTiers(raw: string | undefined): SponsorshipTier[] {
     // fallthrough
   }
   return DEFAULT_SPONSORSHIP_TIERS;
+}
+
+export async function getPartnerLogos(): Promise<PartnerLogo[]> {
+  const settings = await getSettings();
+  return parsePartnerLogos(settings.partnerLogos);
+}
+
+function parsePartnerLogos(raw: string | undefined): PartnerLogo[] {
+  if (!raw) return parsePartnerLogos(DEFAULT_SETTINGS.partnerLogos);
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) return parsed as PartnerLogo[];
+  } catch {
+    // fallthrough
+  }
+  return parsePartnerLogos(DEFAULT_SETTINGS.partnerLogos);
 }
 
 function parsePoints(raw: string | undefined): string[] {

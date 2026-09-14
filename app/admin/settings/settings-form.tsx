@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus, Trash2 } from "lucide-react";
-import { updateSettings, type SponsorshipTier } from "./actions";
+import { updateSettings, type SponsorshipTier, type PartnerLogo } from "./actions";
 
 const SETTING_FIELDS = [
   { key: "siteName", label: "Site Name", placeholder: "MIICCOF" },
@@ -38,16 +38,27 @@ function parsePoints(raw: string): string[] {
   }
 }
 
+function parseLogos(raw: string): PartnerLogo[] {
+  try {
+    const parsed = JSON.parse(raw) as PartnerLogo[];
+    return parsed;
+  } catch {
+    return [];
+  }
+}
+
 export function SettingsForm({ settings }: { settings: Record<string, string> }) {
   const [message, setMessage] = useState<string | null>(null);
   const [sponsorsIntro, setSponsorsIntro] = useState(settings.sponsorsIntro ?? "");
   const [tiers, setTiers] = useState<SponsorshipTier[]>(parseTiers(settings.sponsorshipTiers ?? "[]"));
   const [points, setPoints] = useState<string[]>(parsePoints(settings.whyPartnerPoints ?? "[]"));
+  const [logos, setLogos] = useState<PartnerLogo[]>(parseLogos(settings.partnerLogos ?? "[]"));
 
   async function handleSubmit(formData: FormData) {
     formData.set("sponsorsIntro", sponsorsIntro);
     formData.set("sponsorshipTiers", JSON.stringify(tiers));
     formData.set("whyPartnerPoints", JSON.stringify(points));
+    formData.set("partnerLogos", JSON.stringify(logos));
     const result = await updateSettings(formData);
     setMessage(result.error ?? "Settings saved");
     setTimeout(() => setMessage(null), 3000);
@@ -75,6 +86,18 @@ export function SettingsForm({ settings }: { settings: Record<string, string> })
 
   function removePoint(index: number) {
     setPoints((prev) => prev.filter((_, i) => i !== index));
+  }
+
+  function updateLogo(index: number, field: keyof PartnerLogo, value: string) {
+    setLogos((prev) => prev.map((l, i) => (i === index ? { ...l, [field]: value } : l)));
+  }
+
+  function addLogo() {
+    setLogos((prev) => [...prev, { name: "", image: "", href: "" }]);
+  }
+
+  function removeLogo(index: number) {
+    setLogos((prev) => prev.filter((_, i) => i !== index));
   }
 
   return (
@@ -193,6 +216,55 @@ export function SettingsForm({ settings }: { settings: Record<string, string> })
                 >
                   <Trash2 className="h-4 w-4 text-destructive" />
                 </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="font-heading text-xl font-semibold text-primary">Partner Logos Carousel</h2>
+        <p className="text-sm text-muted-foreground">
+          Logos shown between the Organising Committee and Sponsorship Packages sections on the homepage. Each logo links to its website in a new tab.
+        </p>
+
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <Label>Logos</Label>
+            <Button type="button" variant="outline" size="sm" onClick={addLogo}>
+              <Plus className="mr-1 h-4 w-4" />
+              Add Logo
+            </Button>
+          </div>
+          <div className="space-y-3">
+            {logos.map((logo, i) => (
+              <div key={i} className="grid gap-3 rounded-lg border bg-card p-4 sm:grid-cols-3">
+                <Input
+                  value={logo.name}
+                  onChange={(e) => updateLogo(i, "name", e.target.value)}
+                  placeholder="Organisation name"
+                />
+                <Input
+                  value={logo.image}
+                  onChange={(e) => updateLogo(i, "image", e.target.value)}
+                  placeholder="Logo image path, e.g. /images/brands/..."
+                />
+                <div className="flex gap-2">
+                  <Input
+                    value={logo.href}
+                    onChange={(e) => updateLogo(i, "href", e.target.value)}
+                    placeholder="Website URL"
+                  />
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => removeLogo(i)}
+                    aria-label="Remove logo"
+                  >
+                    <Trash2 className="h-4 w-4 text-destructive" />
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
