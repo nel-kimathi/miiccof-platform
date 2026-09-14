@@ -44,7 +44,7 @@ const pages: PageSeed[] = [
         body: "MIICCOF brings together investors, government, business leaders and innovators to showcase opportunities, forge partnerships and drive inclusive growth.",
         imageUrl: "/images/hero/tea-harvesting.jpeg",
         metadata: {
-          badge: "December 3rd,4th & 5th 2026",
+          badge: "December 3rd, 4th, & 5th 2026",
           cta: [
             { label: "Discover More", href: "/about" },
             { label: "Register to Attend", href: "/register" },
@@ -75,7 +75,7 @@ const pages: PageSeed[] = [
             },
             {
               title: "Mr. Joshua K. Mungania",
-              role: "Chairman MCCI (Meru Chapter)",
+              role: "Chairman KNCCI - Meru Chapter",
               description: "Connecting the private sector with investment opportunities and championing trade facilitation across the region.",
               image: "/images/leadership/chairman.jpeg",
             },
@@ -163,7 +163,7 @@ const pages: PageSeed[] = [
         key: "body",
         order: 1,
         title: "Our Story",
-        body: "Three institutions. One vision. A new chapter for Meru.\n\nThe Meru International Investment Conference and Consumer Fair (MIICCOF) was born from a unique tripartite partnership between the KNCCI Meru Chapter, Meru University of Science and Technology, and the Meru County Government—uniting business, research, innovation and government to unlock Meru's potential.\n\nFor the first time, the business community, investors, researchers and innovators come together under one platform to showcase, connect and create opportunities.\n\nWith the support of the Governor of Meru County, the research and innovation strength of Meru University, and the networks and enterprise of KNCCI Meru, MIICCOF puts the best of Meru on display—from agriculture and tourism to manufacturing, technology, trade and emerging enterprises.\n\nMIICCOF is more than a conference and consumer fair. It is Meru opening its doors to the world and inviting the world to invest, partner and grow with us.",
+        body: "Three institutions. One vision. A new chapter for Meru.\n\nThe Meru International Investors Conference and Consumer Fair (MIICCOF) was born from a unique tripartite partnership between the KNCCI Meru Chapter, Meru University of Science and Technology, and the Meru County Government—uniting business, research, innovation and government to unlock Meru's potential.\n\nFor the first time, the business community, investors, researchers and innovators come together under one platform to showcase, connect and create opportunities.\n\nWith the support of the Governor of Meru County, the research and innovation strength of Meru University, and the networks and enterprise of KNCCI Meru, MIICCOF puts the best of Meru on display—from agriculture and tourism to manufacturing, technology, trade and emerging enterprises.\n\nMIICCOF is more than a conference and consumer fair. It is Meru opening its doors to the world and inviting the world to invest, partner and grow with us.",
         imageUrl: "/images/sections/about-tripartite.png",
         metadata: { logoUrl: "/images/logos/miictf-logo.png" },
       },
@@ -202,7 +202,7 @@ const pages: PageSeed[] = [
             },
             {
               title: "Mr. Joshua K. Mungania",
-              role: "Chairman MCCI (Meru Chapter)",
+              role: "Chairman KNCCI - Meru Chapter",
               description: "Connecting the private sector with investment opportunities and championing trade facilitation across the region. Mr. Mungania represents the interests of Meru's business community.",
               image: "/images/leadership/chairman.jpeg",
             },
