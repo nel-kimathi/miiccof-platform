@@ -44,7 +44,12 @@
 - Centered sponsorship package cards on homepage and sponsors page using flexbox
 - Removed "Powered by [Company]" from Star Partner tier in code defaults
 - Added temporary admin-only API route `/api/admin/update-content` to apply content changes to the production TiDB database
-- Committed and pushed the progress updates (`4aa897f`, `40d806e`, `e9f9399`, `08e49cc`, `efbcd30`, `97a1e9e`, `a2bc329`, `02cba49`, `5d16862`)
+- Updated production TiDB database directly using the provided connection string; all requested content changes are now live
+- Removed question marks from about body and home event times; replaced em-dashes correctly
+- Updated about body first sentence to "The Meru International Investors Conference and Consumer Fair (MIICCOF)"
+- Removed temporary API route and verify script; kept reusable production update scripts
+- Cleaned `.next` build cache and rebuilt to clear stale type references
+- Committed and pushed the progress updates (`4aa897f`, `40d806e`, `e9f9399`, `08e49cc`, `efbcd30`, `97a1e9e`, `a2bc329`, `02cba49`, `5d16862`, `be4327d`)
 
 **Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
 - None
