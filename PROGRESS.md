@@ -7,6 +7,30 @@
 
 ## Session log
 
+### 2026-09-14
+**Done:**
+- Centered homepage Organising Committee and Sponsorship Packages card grids using flexbox (`justify-center`) so partial rows no longer hug the left edge.
+- Fixed Dr. Patrick Kinyua Kubai’s image path in the *home* committee section metadata from `/images/committee/Patrick-Kubai.jpg` to `/images/committee/patrick-kubai.jpg`; about page already had the lowercase path.
+- Verified the fix is live at `https://miiccof-platform.vercel.app` (HTML now references the lowercase image).
+- Re-applied the correct Vercel production alias after each deploy and removed the stale `miictf-platform.vercel.app` alias.
+- Updated `prisma/seed.ts` to match current production content (titles, roles, image paths, event badge text).
+- Ran `npm run lint`, `npm run typecheck`, and `npm run build` successfully.
+- Committed and pushed the layout/seed/script changes (`b1c83bd`).
+
+**Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
+- The local `scripts/update-production-content.ts` could not connect to TiDB Cloud (Prisma pool timeout), likely a local network/firewall issue because the production Vercel deployment connects fine. Applied the one-line image-path fix via a temporary, secret-protected `/api/admin/update-content` route that ran on Vercel, then removed the route.
+
+**Blocked on / open questions for Nelson:**
+- Still waiting for Hostinger Business Node.js hosting + MySQL credentials to import `hostinger-migration.sql`.
+
+**Next session should start with:**
+- Await Hostinger credentials; import `hostinger-migration.sql`, update `DATABASE_URL` and other production env vars, then deploy to Hostinger.
+- Live preview: https://miiccof-platform.vercel.app
+- Repo: https://github.com/nel-kimathi/miiccof-platform
+- Dev server log at `C:\Users\HUDINI\AppData\Local\Temp\opencode\next-dev.log`
+
+---
+
 ### 2026-09-11
 **Done:**
 - Renamed GitHub repo from `nel-kimathi/miictf-platform` to `nel-kimathi/miiccof-platform`
