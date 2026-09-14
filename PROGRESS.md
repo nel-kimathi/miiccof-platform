@@ -36,7 +36,15 @@
 - Updated homepage to render sponsorship section from shared settings while keeping other CMS sections intact
 - Ran lint/typecheck/build and deployed (`02cba49`)
 - Verified homepage displays the 5 sponsorship tiers with the "Sponsorship Details" CTA
-- Committed and pushed the progress updates (`4aa897f`, `40d806e`, `e9f9399`, `08e49cc`, `efbcd30`, `97a1e9e`, `a2bc329`, `02cba49`)
+- Updated home hero badge to "December 3rd,4th & 5th 2026" and added green blinking pulse dot on the left of the badge
+- Updated Prof. Romanus Odhiambo title to "Vice Chancellor MUST" on home and about pages
+- Removed Patrick Kathurima from home and about organising committees; made Martin Kiogora Mbui Secretary
+- Fixed KNCCI description text and question marks in about organising committee
+- Fixed Dr. Patrick Kinyua Kubai image path case (`patrick-kubai.jpg`) in seed data
+- Centered sponsorship package cards on homepage and sponsors page using flexbox
+- Removed "Powered by [Company]" from Star Partner tier in code defaults
+- Added temporary admin-only API route `/api/admin/update-content` to apply content changes to the production TiDB database
+- Committed and pushed the progress updates (`4aa897f`, `40d806e`, `e9f9399`, `08e49cc`, `efbcd30`, `97a1e9e`, `a2bc329`, `02cba49`, `5d16862`)
 
 **Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
 - None
