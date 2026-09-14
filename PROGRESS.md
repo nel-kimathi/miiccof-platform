@@ -14,8 +14,14 @@
 - Verified the fix is live at `https://miiccof-platform.vercel.app` (HTML now references the lowercase image).
 - Re-applied the correct Vercel production alias after each deploy and removed the stale `miictf-platform.vercel.app` alias.
 - Updated `prisma/seed.ts` to match current production content (titles, roles, image paths, event badge text).
-- Ran `npm run lint`, `npm run typecheck`, and `npm run build` successfully.
-- Committed and pushed the layout/seed/script changes (`b1c83bd`).
+- Restored the partner logos carousel between the Organising Committee and Sponsorship Packages sections on the homepage.
+- Added a CMS-editable `partnerLogos` SiteSetting with default logos for Meru County Government (→ https://meru.go.ke/), Meru University of Science and Technology, and KNCCI Meru Chapter.
+- Built `components/public/partner-logos.tsx` using the existing `BrandCarousel`, which opens each logo link in a new tab.
+- Added a "Partner Logos Carousel" editor in Admin → Settings so non-technical staff can add/remove logos and change URLs.
+- Ran `npm run lint` and `npm run typecheck` successfully; local `npm run build` could not complete because this machine cannot reach TiDB Cloud, but the Vercel production build succeeded.
+- Committed and pushed the layout/seed/script changes (`b1c83bd`) and the partner-logos feature (`9ff4c0a`).
+- Applied the `partnerLogos` setting to the production TiDB database via a temporary, secret-protected API route running on Vercel, then removed the route.
+- Verified the live homepage now shows the Our Partners carousel with the three logos linking to their respective sites in new tabs.
 
 **Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
 - The local `scripts/update-production-content.ts` could not connect to TiDB Cloud (Prisma pool timeout), likely a local network/firewall issue because the production Vercel deployment connects fine. Applied the one-line image-path fix via a temporary, secret-protected `/api/admin/update-content` route that ran on Vercel, then removed the route.
