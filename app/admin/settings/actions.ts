@@ -19,12 +19,12 @@ async function requireAdmin() {
 }
 
 const DEFAULT_SPONSORSHIP_TIERS = [
-  {
-    name: "Star Partner",
-    amount: "KES 5,000,000",
-    slots: "1 slot",
-    position: "Title Partner (\"Powered by [Company]\")",
-  },
+      {
+        name: "Star Partner",
+        amount: "KES 5,000,000",
+        slots: "1 slot",
+        position: "Title Partner",
+      },
   {
     name: "Platinum Partner",
     amount: "KES 3,000,000",

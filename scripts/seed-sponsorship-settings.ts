@@ -6,12 +6,12 @@ const DEFAULT_SPONSORSHIP_SETTINGS: Record<string, string> = {
   sponsorsIntro:
     "MIICCOF is a flagship platform convening investors, businesses, government, development partners, financial institutions, and consumers to unlock investment and commercial opportunities across Meru County and the wider region, showcasing potential in agriculture and agribusiness, avocado and miraa value addition, tourism and hospitality, manufacturing, trade, financial services, technology, SMEs, and Special Economic Zone (SEZ) opportunities.",
   sponsorshipTiers: JSON.stringify([
-    {
-      name: "Star Partner",
-      amount: "KES 5,000,000",
-      slots: "1 slot",
-      position: 'Title Partner ("Powered by [Company]")',
-    },
+      {
+        name: "Star Partner",
+        amount: "KES 5,000,000",
+        slots: "1 slot",
+        position: "Title Partner",
+      },
     {
       name: "Platinum Partner",
       amount: "KES 3,000,000",
@@ -51,7 +51,7 @@ async function main() {
   for (const [key, value] of Object.entries(DEFAULT_SPONSORSHIP_SETTINGS)) {
     await prisma.siteSetting.upsert({
       where: { key },
-      update: {},
+      update: { value },
       create: { id: randomUUID(), key, value },
     });
     console.log(`Seeded ${key}`);

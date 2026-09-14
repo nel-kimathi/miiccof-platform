@@ -48,7 +48,11 @@ function Hero({ section }: { section: PageSection }) {
       {hasImage && <div className="absolute inset-0 bg-black/50" />}
       <div className="relative mx-auto max-w-3xl">
         {m.badge ? (
-          <span className="mb-4 inline-block rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+            </span>
             {m.badge}
           </span>
         ) : null}

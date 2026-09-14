@@ -44,7 +44,7 @@ const pages: PageSeed[] = [
         body: "MIICCOF brings together investors, government, business leaders and innovators to showcase opportunities, forge partnerships and drive inclusive growth.",
         imageUrl: "/images/hero/tea-harvesting.jpeg",
         metadata: {
-          badge: "November 25 – 28, 2026",
+          badge: "December 3rd,4th & 5th 2026",
           cta: [
             { label: "Discover More", href: "/about" },
             { label: "Register to Attend", href: "/register" },
@@ -69,7 +69,7 @@ const pages: PageSeed[] = [
             },
             {
               title: "Prof. Romanus Odhiambo, Ph.D.",
-              role: "Vice Chancellor, MKU",
+              role: "Vice Chancellor MUST",
               description: "Leading academic innovation and research partnerships that drive the conference's thought leadership agenda.",
               image: "/images/leadership/vice-chancellor.webp",
             },
@@ -117,10 +117,9 @@ const pages: PageSeed[] = [
           cards: [
             { title: "Dr. Julius Ithae", role: "Chairperson", description: "Representing Meru University of Science and Technology (MUST) as Chairperson of the Organising Committee.", image: "/images/committee/julius-ithae.jpg" },
             { title: "Jackline Kanana", role: "Vice Chairperson", description: "Representing the County Government of Meru (MCG) as Vice Chairperson, overseeing trade facilitation.", image: "/images/committee/jacline-kanana.png", zoom: "h-[140%] w-[140%] object-cover object-[center_10%]" },
-            { title: "Patrick Kathurima", role: "Secretary", description: "Representing KNCCI – Meru Chapter as Secretary, coordinating chamber activities and member engagement.", image: "/images/committee/patrick-kathurima.jpg" },
-            { title: "Martin Kiogora Mbui", role: "CEO, KNCCI Meru Chapter", description: "Leading the Kenya National Chamber of Commerce and Industry – Meru Chapter in private sector partnerships.", image: "/images/committee/martin-mbui.jpeg" },
+            { title: "Martin Kiogora Mbui", role: "Secretary", description: "Representing KNCCI Meru Chapter as Secretary, coordinating chamber activities and member engagement.", image: "/images/committee/martin-mbui.jpeg" },
             { title: "Kithinji Ruri", role: "Meru County Government", description: "Representing the Meru County Government in logistics, policy coordination and public sector alignment.", image: "/images/committee/kithinji-ruri.jpg" },
-            { title: "Dr. Patrick Kinyua Kubai", role: "MUST Representative", description: "Representing Meru University of Science and Technology in academic partnerships and research coordination.", image: "/images/committee/Patrick-Kubai.jpg" },
+            { title: "Dr. Patrick Kinyua Kubai", role: "MUST Representative", description: "Representing Meru University of Science and Technology in academic partnerships and research coordination.", image: "/images/committee/patrick-kubai.jpg" },
           ],
         },
       },
@@ -228,10 +227,9 @@ const pages: PageSeed[] = [
             { title: "Dr. Patrick Kinyua Kubai", role: "MUST Representative", org: "MUST", description: "Representing Meru University of Science and Technology in academic partnerships and research coordination." },
             { title: "Prof. Jackline Oparde", role: "MUST Representative", org: "MUST", description: "Contributing academic expertise and research partnerships from Meru University of Science and Technology." },
             { title: "Prof. Amos Omano", role: "MUST Representative", org: "MUST", description: "Supporting academic coordination and institutional partnerships from Meru University." },
-            { title: "Veronicah Kihenja", role: "Vice Chairperson", org: "KNCCI – Meru Chapter", description: "Serving as Vice Chairperson of KNCCI – Meru Chapter, supporting sponsor relations and business networking." },
-            { title: "William Wambugu", role: "Director", org: "KNCCI – Meru Chapter", description: "Serving as Director, guiding strategic initiatives and chamber operations for the conference." },
-            { title: "Martin Kiogora Mbui", role: "CEO, KNCCI Meru Chapter", org: "KNCCI – Meru Chapter", description: "Leading the Kenya National Chamber of Commerce and Industry – Meru Chapter in private sector partnerships." },
-            { title: "Patrick Kathurima", role: "Secretary", org: "KNCCI – Meru Chapter", description: "Representing KNCCI – Meru Chapter as Secretary, coordinating chamber activities." },
+            { title: "Veronicah Kihenja", role: "Vice Chairperson", org: "KNCCI Meru Chapter", description: "Serving as Vice Chairperson of KNCCI Meru Chapter, supporting sponsor relations and business networking." },
+            { title: "William Wambugu", role: "Director", org: "KNCCI Meru Chapter", description: "Serving as Director, guiding strategic initiatives and chamber operations for the conference." },
+            { title: "Martin Kiogora Mbui", role: "Secretary", org: "KNCCI Meru Chapter", description: "Representing KNCCI Meru Chapter as Secretary, coordinating chamber activities and member engagement." },
           ],
         },
       },
@@ -502,7 +500,7 @@ async function main() {
         name: "Star Partner",
         amount: "KES 5,000,000",
         slots: "1 slot",
-        position: 'Title Partner ("Powered by [Company]")',
+        position: "Title Partner",
       },
       {
         name: "Platinum Partner",
@@ -541,7 +539,7 @@ async function main() {
   for (const [key, value] of Object.entries(defaultSettings)) {
     await prisma.siteSetting.upsert({
       where: { key },
-      update: {},
+      update: { value },
       create: { id: randomUUID(), key, value },
     });
   }
