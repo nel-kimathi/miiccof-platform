@@ -296,7 +296,7 @@ function CardGrid({ section }: { section: PageSection }) {
               {section.subtitle}
             </p>
           ) : null}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 flex flex-wrap justify-center gap-6">
             {cards.map((card, i) => {
               const org = cardsMeta[i]?.org;
               const orgColor =
@@ -311,7 +311,7 @@ function CardGrid({ section }: { section: PageSection }) {
               return (
                 <Card
                   key={i}
-                  className="border-t-4 border-t-primary text-center transition-shadow hover:shadow-lg"
+                  className="w-full max-w-sm border-t-4 border-t-primary text-center transition-shadow hover:shadow-lg sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
                   <CardHeader>
                     {card.image ? (

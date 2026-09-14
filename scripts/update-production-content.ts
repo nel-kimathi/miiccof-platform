@@ -107,12 +107,15 @@ async function main() {
           card.description =
             "Representing KNCCI Meru Chapter as Secretary, coordinating chamber activities and member engagement.";
         }
+        if (card.title === "Dr. Patrick Kinyua Kubai") {
+          card.image = "/images/committee/patrick-kubai.jpg";
+        }
         if (card.description) {
           card.description = card.description.replace(/\?\?\?/g, "–");
         }
       }
       metadata.cards = filtered;
-      await prisma.section.update({ where: { id: committee.id }, data: { metadata: asJson(metadata) } });
+      await prisma.section.update({ where: { id: committee.id }, data: { metadata } });
       console.log("Updated home committee");
     }
 
@@ -187,9 +190,16 @@ async function main() {
           card.role = "Secretary";
           card.description =
             "Representing KNCCI Meru Chapter as Secretary, coordinating chamber activities and member engagement.";
+          card.image = "/images/committee/martin-mbui.jpeg";
         }
         if (card.title === "Dr. Patrick Kinyua Kubai") {
           card.image = "/images/committee/patrick-kubai.jpg";
+        }
+        if (card.title === "Dr. Julius Ithae") {
+          card.image = "/images/committee/julius-ithae.jpg";
+        }
+        if (card.title === "Jackline Kanana") {
+          card.image = "/images/committee/jacline-kanana.png";
         }
         if (card.description) {
           card.description = card.description.replace(/\?\?\?/g, "–");
