@@ -89,7 +89,7 @@ const DEFAULT_SETTINGS: Record<string, string> = {
     {
       name: "KNCCI Meru Chapter",
       image: "/images/brands/kncci-logo.png",
-      href: "https://kncci.org/",
+      href: "https://meruchamber.co.ke/",
     },
   ]),
 };

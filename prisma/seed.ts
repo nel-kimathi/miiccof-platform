@@ -546,11 +546,11 @@ async function main() {
         image: "/images/brands/must-logo.png",
         href: "https://www.must.ac.ke/",
       },
-      {
-        name: "KNCCI Meru Chapter",
-        image: "/images/brands/kncci-logo.png",
-        href: "https://kncci.org/",
-      },
+    {
+      name: "KNCCI Meru Chapter",
+      image: "/images/brands/kncci-logo.png",
+      href: "https://meruchamber.co.ke/",
+    },
     ]),
   };
   for (const [key, value] of Object.entries(defaultSettings)) {
