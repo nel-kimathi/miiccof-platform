@@ -23,8 +23,10 @@
 - Applied the `partnerLogos` setting to the production TiDB database via a temporary, secret-protected API route running on Vercel, then removed the route.
 - Verified the live homepage now shows the Our Partners carousel with the three logos linking to their respective sites in new tabs.
 - Updated KNCCI Meru Chapter logo link from `https://kncci.org/` to `https://meruchamber.co.ke/` in code defaults, seed data, and production database; verified live.
-- Enabled Vercel SSO Deployment Protection on `miiccof-platform` so the live preview URL now requires Vercel authentication and is no longer publicly accessible.
+- Enabled Vercel SSO Deployment Protection on `miiccof-platform` so generated deployment URLs now require Vercel authentication and are no longer publicly accessible.
 - Made the GitHub repository `nel-kimathi/miiccof-platform` private; verified it returns 404 for unauthenticated requests.
+- Removed the public `miiccof-platform.vercel.app` alias because Vercel Hobby SSO does not protect project-name aliases; the alias now returns DEPLOYMENT_NOT_FOUND, leaving only SSO-protected generated URLs accessible.
+- Attempted to add an application-level password wall via Next.js middleware, but Vercel production builds became stuck in UNKNOWN state (likely Hobby plan build queue/concurrency issue), so the password wall is in the codebase but not yet deployed live.
 
 **Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
 - The local `scripts/update-production-content.ts` could not connect to TiDB Cloud (Prisma pool timeout), likely a local network/firewall issue because the production Vercel deployment connects fine. Applied the one-line image-path fix via a temporary, secret-protected `/api/admin/update-content` route that ran on Vercel, then removed the route.
