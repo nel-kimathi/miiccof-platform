@@ -180,7 +180,7 @@ export function SiteHeader() {
           </Button>
           <Button
             size="sm"
-            className="whitespace-nowrap rounded-[20px] px-4 py-1.5 text-sm font-bold tracking-wide"
+            className="whitespace-nowrap rounded-[20px] bg-primary px-4 py-1.5 text-sm font-bold tracking-wide text-primary-foreground hover:bg-white hover:text-primary"
             render={<Link href="/register" />}
           >
             Register
@@ -281,7 +281,7 @@ export function SiteHeader() {
             </Button>
             <Button
               size="lg"
-              className="w-full whitespace-nowrap rounded-[20px] bg-accent px-6 py-3 text-base font-bold tracking-wide text-accent-foreground hover:bg-accent/90"
+              className="w-full whitespace-nowrap rounded-[20px] bg-primary px-6 py-3 text-base font-bold tracking-wide text-primary-foreground hover:bg-white hover:text-primary"
               render={<Link href="/register" />}
             >
               Register
