@@ -26,7 +26,10 @@
 - Enabled Vercel SSO Deployment Protection on `miiccof-platform` so generated deployment URLs now require Vercel authentication and are no longer publicly accessible.
 - Made the GitHub repository `nel-kimathi/miiccof-platform` private; verified it returns 404 for unauthenticated requests.
 - Removed the public `miiccof-platform.vercel.app` alias because Vercel Hobby SSO does not protect project-name aliases; the alias now returns DEPLOYMENT_NOT_FOUND, leaving only SSO-protected generated URLs accessible.
-- Attempted to add an application-level password wall via Next.js middleware, but Vercel production builds became stuck in UNKNOWN/BLOCKED state even with middleware disabled (confirmed it's not a code issue). New deployments return readyState BLOCKED and never complete. The password wall is in the codebase but cannot deploy on Vercel.
+- Vercel's build block cleared after ~15 days; fresh production deployment succeeded.
+- Restored the short standard URL `https://miiccof-platform.vercel.app` and pointed it to the latest deployment.
+- The application-level password wall is now live: visitors must enter the access password before viewing any page.
+- Verified the homepage loads correctly after entering the password.
 
 **Decisions / deviations from AGENTS.md or BUILD_PLAN.md (if any):**
 - The local `scripts/update-production-content.ts` could not connect to TiDB Cloud (Prisma pool timeout), likely a local network/firewall issue because the production Vercel deployment connects fine. Applied the one-line image-path fix via a temporary, secret-protected `/api/admin/update-content` route that ran on Vercel, then removed the route.
